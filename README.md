@@ -8,4 +8,3 @@ pyMICA examples
 This repository holds tutorials and examples to run the [pyMICA](https://github.com/meteocat/pymica) package!
 
 A [binder](https://mybinder.org/v2/gh/meteocat/pymica-examples/binder) was created, so you can try MICA without even installing it on your computer. Try it!
-
