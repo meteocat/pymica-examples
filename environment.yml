@@ -1,0 +1,10 @@
+name: micaexamples
+dependencies:
+  - numpy
+  - scipy
+  - scikit-learn
+  - gdal
+  - pyproj
+  - pip
+  - pip:
+    - pymica
