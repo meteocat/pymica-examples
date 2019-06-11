@@ -5,6 +5,8 @@ dependencies:
   - scikit-learn
   - gdal
   - pyproj
+  - matplotlib
+  - pandas
   - pip
   - pip:
     - pymica
