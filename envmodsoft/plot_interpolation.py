@@ -13,7 +13,7 @@ from pymica.pymica import PyMica
 def crop_to_cat(inRaster):
     outRaster = './temporal_interpolation.tif' 
     subprocess.call(['gdalwarp', inRaster, outRaster, '-cutline',
-                     '/home/ecm/Doctorat/Dades/Geografics/catalunya_fronteres.shp', 
+                     '../envmodsoft/data/explanatory/cat_limits_shp/catalunya_fronteres.shp', 
                      '-dstnodata','-9999'])
 
     raster = gdal.Open(outRaster)
@@ -27,7 +27,6 @@ def get_tif_array_crop(tifpath):
     ds = gdal.Open(tifpath)
     data = crop_to_cat(tifpath)
     gt = ds.GetGeoTransform()
-    proj = ds.GetProjection()
 
     xres = gt[1]
     yres = gt[5]
@@ -48,7 +47,6 @@ def get_tif_array(tifpath, inEPSG, outEPSG):
     ds = gdal.Open(tifpath)
     data = ds.ReadAsArray()
     gt = ds.GetGeoTransform()
-    proj = ds.GetProjection()
 
     xres = gt[1]
     yres = gt[5]
@@ -58,7 +56,7 @@ def get_tif_array(tifpath, inEPSG, outEPSG):
     ymin = gt[3] + (yres * ds.RasterYSize) + yres * 0.5
     ymax = gt[3] - yres * 0.5
 
-    xx, yy = xy_source = np.mgrid[xmin:xmax+xres:xres, ymax+yres:ymin:yres]
+    xx, yy = np.mgrid[xmin:xmax+xres:xres, ymax+yres:ymin:yres]
 
     return xx, yy, data
 

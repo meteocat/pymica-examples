@@ -8,7 +8,7 @@ import os
 def crop_to_cat(inRaster):
     outRaster = './temporal_interpolation.tif' 
     subprocess.call(['gdalwarp', inRaster, outRaster, '-cutline',
-                     '/home/ecm/Doctorat/Dades/Geografics/catalunya_fronteres.shp', 
+                     '../envmodsoft/data/explanatory/cat_limits_shp/catalunya_fronteres.shp', 
                      '-dstnodata','-9999'])
 
     raster = gdal.Open(outRaster)
