@@ -8,7 +8,7 @@ import os
 def crop_to_cat(inRaster):
     outRaster = './temporal_interpolation.tif' 
     subprocess.call(['gdalwarp', inRaster, outRaster, '-cutline',
-                     '../envmodsoft/data/explanatory/cat_limits_shp/catalunya_fronteres.shp', 
+                     'envmodsoft/data/explanatory/cat_limits_shp/catalunya_fronteres.shp', 
                      '-dstnodata','-9999'])
 
     raster = gdal.Open(outRaster)
@@ -85,15 +85,15 @@ ax1.set_aspect('equal')
 ax1.axis('off')
 ax1.text(271030, 4742408, 'a)', size=3)
 
-id_3d = get_tif_array_crop('envmodsoft/output/residuals_id3d.tif')
-ax2.contourf(id_3d[0], id_3d[1], id_3d[2][:, :].T, clevs, cmap=cmap)
+id_w = get_tif_array_crop('envmodsoft/output/residuals_idw.tif')
+im1 = ax2.contourf(id_w[0], id_w[1], id_w[2][:, :].T, clevs, cmap=cmap)
 ax2.set_aspect('equal')
 ax2.axis('off')
 ax2.text(271030, 4742408, 'b)', size=3)
 
-id_w = get_tif_array_crop('envmodsoft/output/residuals_idw.tif')
-im1 = ax3.contourf(id_w[0], id_w[1], id_w[2][:, :].T, clevs, cmap=cmap)
-ax3.set_aspect('equal   ')
+id_3d = get_tif_array_crop('envmodsoft/output/residuals_id3d.tif')
+ax3.contourf(id_3d[0], id_3d[1], id_3d[2][:, :].T, clevs, cmap=cmap)
+ax3.set_aspect('equal')
 ax3.axis('off')
 ax3.text(271030, 4742408, 'c)', size=3)
 
@@ -101,7 +101,7 @@ cbar_ax = fig.add_axes([0.355, 0.25, 0.30, 0.015])
 cbar = plt.colorbar(im1, cax=cbar_ax, orientation='horizontal')
 cbar.ax.tick_params(labelsize=3, width=0.3, size=2, pad=1)
 cbar.outline.set_linewidth(0.3)
-cbar.set_label('Air temperature (\u00b0C)', size=3)#(\u00b0C)', size=8)
+cbar.set_label('Air temperature (\u00b0C)', size=3) # (\u00b0C)', size=8)
 
 
 plt.savefig('/tmp/ems_residuals_comparison.pdf', bbox_inches='tight', pad=0)
