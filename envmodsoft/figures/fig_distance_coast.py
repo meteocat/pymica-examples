@@ -25,7 +25,6 @@ def get_tif_array_crop(tifpath):
     ds = gdal.Open(tifpath)
     data = crop_to_cat(tifpath)
     gt = ds.GetGeoTransform()
-    proj = ds.GetProjection()
 
     xres = gt[1]
     yres = gt[5]
@@ -63,8 +62,8 @@ cbar.set_label('Distance to coast function', size=4)#(\u00b0C)', size=8)
 
 coast_line = gp.read_file('sample-data/explanatory/cat_coast_line.json')
 coast_line.plot(ax=ax1, color='red', linewidth=0.8, label='Coast line')
-ax1.legend(loc='lower right', fontsize=3.5, frameon=False)
-ax1.text(271030, 4742408, 'a)', size=4)
+ax1.legend(loc='lower right', fontsize=4, frameon=False)
+ax1.text(271030, 4742408, 'a)', size=5)
 
 mbaxes = inset_axes(ax1, width="100%", height="100%",
                     bbox_to_anchor=[430000,4510040,120000,60000],
@@ -80,13 +79,10 @@ ax2.set_xlim(-4, 15)
 ax2.set_ylim(36, 48)
 ax2.set_xticks([])
 ax2.set_yticks([])
-ax2.text(-5.7, 46.8, 'b)', size=4)
+ax2.text(-6.0, 46.8, 'b)', size=5)
 
 catalonia = gp.read_file('envmodsoft/data/explanatory/cat_boundaries.geojson')
 catalonia.plot(ax=mbaxes, facecolor='darkgrey', edgecolor='None')
-
-
-
 
 ax1.set_xlim(260000, 530000)
 ax1.set_ylim(4488100, 4750000)
