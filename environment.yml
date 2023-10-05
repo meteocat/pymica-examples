@@ -6,7 +6,7 @@ dependencies:
   - numpy
   - scipy
   - scikit-learn
-  - gdal=2.4.1
+  - gdal
   - pyproj
   - matplotlib
   - pandas
