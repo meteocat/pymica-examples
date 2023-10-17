@@ -1,0 +1,81 @@
+{
+    "id2d": {
+        "id_power": 2.5,
+        "id_smoothing": 0.0,
+        "interpolation_bounds": [
+            260000,
+            4480000,
+            530000,
+            4750000
+        ],
+        "resolution": 1000,
+        "EPSG": 25831
+    },
+    "id3d": {
+        "id_power": 2.5,
+        "id_smoothing": 0.0,
+        "id_penalization": 30,
+        "variables_files": {
+            "altitude": "sample-data/explanatory/cat_dem_25831.tif"
+        },
+        "interpolation_bounds": [
+            260000,
+            4488100,
+            530000,
+            4750000
+        ],
+        "resolution": 270,
+        "EPSG": 25831
+    },
+    "mlr": {
+        "clusters": "None",
+        "variables_files": {
+            "altitude": "sample-data/explanatory/cat_dem_25831.tif",
+            "dist": "sample-data/explanatory/cat_distance_coast.tif"
+        },
+        "interpolation_bounds": [
+            260000,
+            4488100,
+            530000,
+            4750000
+        ],
+        "resolution": 270,
+        "EPSG": 25831
+    },
+    "mlr+id2d": {
+        "id_power": 2.5,
+        "id_smoothing": 0.0,
+        "clusters": "None",
+        "variables_files": {
+            "altitude": "sample-data/explanatory/cat_dem_25831.tif",
+            "dist": "sample-data/explanatory/cat_distance_coast.tif"
+        },
+        "interpolation_bounds": [
+            260000,
+            4488100,
+            530000,
+            4750000
+        ],
+        "resolution": 270,
+        "EPSG": 25831
+    },
+    "mlr+id3d": {
+        "id_power": 2.5,
+        "id_smoothing": 0.0,
+        "id_penalization": 30,
+        "clusters": "None",
+        "variables_files": {
+            "altitude": "sample-data/explanatory/cat_dem_25831.tif",
+            "dist": "sample-data/explanatory/cat_distance_coast.tif"
+        },
+        "interpolation_bounds": [
+            260000,
+            4488100,
+            530000,
+            4750000
+        ],
+        "resolution": 270,
+        "EPSG": 25831
+    }
+
+}
